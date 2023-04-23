@@ -31,6 +31,7 @@ import {
 } from '@mui/icons-material';
 
 import Topbar from './components/topbar';
+import ChartsContainer from './components/chartscontainer';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -76,16 +77,39 @@ export default function Home() {
 									🔻 -0.42% 🥇 42<sup>nd</sup>
 								</Typography>
 							</Box>
-							{/* 
-								<Line data={{
-									labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-									datasets: [{
-										data: [65, 59, 80, 81, 56, 55, 40]
-									}]
-								}} options={{responsive: true, maintainAspectRatio: false}} />
-							*/}
-							<Box sx={{ display: 'flex' }}>
-								<Typography>test</Typography>
+							<Box sx={{ display: 'flex', flexDirection: { xs: "column", md: "row" }}}>
+								<ChartsContainer>
+									{
+										<Line data={{
+											labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+											datasets: [
+												{
+													data: [65, 59, 80, 81, 56, 55, 40]
+												},
+												{
+													data: [25, 49, 90, 82, 54, 53, 45]
+												}
+											]
+										}} options={{responsive: true, maintainAspectRatio: false}} />
+									}
+								</ChartsContainer>
+								<List>
+									<ListItem>
+										<ListItemButton selected>
+											Scores
+										</ListItemButton>
+									</ListItem>
+									<ListItem>
+										<ListItemButton>
+											Skill sets
+										</ListItemButton>
+									</ListItem>
+									<ListItem>
+										<ListItemButton>
+											Leaderboard
+										</ListItemButton>
+									</ListItem>
+								</List>
 							</Box>
 							<Divider />
 							<Typography variant='h5'>
