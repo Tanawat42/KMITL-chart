@@ -11,7 +11,7 @@ import {
 } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
 import SideBar from './sidebar';
-import { Search } from '@mui/icons-material';
+import { Search, AccountCircle } from '@mui/icons-material';
 
 export default function Topbar() {
 	const drawerWidth = 280;
@@ -31,7 +31,7 @@ export default function Topbar() {
 			<AppBar position='fixed' sx={{
 				zIndex: (theme) => theme.zIndex.drawer + 1
 			}}>
-				<Toolbar>
+				<Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
 					<IconButton onClick={toggleDrawer} sx={{ display: !isMobile ? 'none' : 'block' }}>
 						<MenuIcon sx={{color: 'white'}} />
 					</IconButton>
@@ -48,9 +48,12 @@ export default function Topbar() {
 							margin: 1
 						}}/>
 					</Box>
-					<Box sx={{display: isMobile ? 'none' : 'block'}}>
-						<Input/>
-						<Search></Search>
+					<Box sx={{ display: 'inline-flex' }}>
+						<Box sx={{display: isMobile ? 'none' : 'block'}}>
+							<Input/>
+							<Search></Search>
+						</Box>
+						<AccountCircle></AccountCircle>
 					</Box>
 				</Toolbar>
 			</AppBar>
