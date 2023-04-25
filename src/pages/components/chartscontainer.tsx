@@ -6,8 +6,9 @@ import {
 export default function ChartsContainer({ children }:any) {
 	return (
 		<>
+			{/* TODO: implement pagination */}
 			<Box>
-				{children}
+				{children[0]}
 			</Box>
 		</>
 	);
